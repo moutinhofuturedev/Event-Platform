@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-900 text-gray-100 box-border h-screen;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Informações importantes
+
+// O que é CMS? = Content Management System
+// => Traz tanto o painel de ADMIM como a parte visual do front
+
+// O que é Haadless ( GRAPH CMS )? = Painel de ADMIN ( dados fornecidos através de um API REST ou GRAPHQL )
+// => REACT  que consome Api do CMS
+
+// SOBRE O GRAPHQL
+
+// No GraphQl existe dois tipos de operações:
+// => query : buscar dados
+// => mutation : criar, alterar ou deletar dados
