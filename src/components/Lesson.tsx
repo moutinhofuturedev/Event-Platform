@@ -46,6 +46,7 @@ export function Lesson(props: LessonProps) { // todo o componente será uma ânc
                     }
                 </header>
                 <strong className={`mt-5 block ${isActiveLesson ? 'text-white' : 'text-gray-200'}`}>{props.title}</strong> 
+                
             </div>
         </Link>
     )
