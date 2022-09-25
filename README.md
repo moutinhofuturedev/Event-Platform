@@ -22,3 +22,23 @@ O Ignite Lab é um evento criado pela [Rocketseat](https://rocketseat.com.br/) p
 O projeto foi desenvolvido para criação de uma plataforma para consumir vídeo aulas.
 
 ![Plataforma - Desktop](https://user-images.githubusercontent.com/86997545/192152339-bfd6b10d-4af3-45e0-a2e1-7adc46129894.svg)
+</br>
+
+### 🛠 Tecnologias
+Desenvolvimento com React, GraphQl, GraphCMS e Typescript.
+
+- **[ReactJS](https://reactjs.org/)**
+- **[GraphQL](https://graphql.org/)**
+- **[GraphCMS](https://app.graphcms.com/)**
+- **[TypeScript](https://www.typescriptlang.org/)**
+
+<br>
+
+---
+
+<h3 align="center" >
+  Feito por Paulo Moutinho
+</h3>
+<a href="https://visitcount.itsvg.in">
+  <img src="https://visitcount.itsvg.in/api?id=moutinhofuturedev&label=Profile%20Views&color=3&icon=5&pretty=true" />
+</a>
