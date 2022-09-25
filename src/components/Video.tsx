@@ -5,48 +5,20 @@ import { CaretRight, FileArrowDown, FileImage, Lightning, WhatsappLogo } from "p
 import { Footer } from "./Footer"
 import { Loading } from "./Loading"
 
-import { gql, useQuery } from "@apollo/client"
-
-const GET_LESSON_BY_SLUG_ID = gql`
-  query GetLessonBySlug($slug: String) {
-  lesson(where: {slug: $slug}) {
-    title
-    videoId
-    description
-    teacher {
-      bio
-      avatarURL
-      name
-    }
-  }
-}
-`
-
-type GetLessonBySlugResponse = {
-    lesson: {
-        title: string
-        videoId: string
-        description: string
-        teacher: {
-            bio: string
-            avatarURL: string
-            name: string
-        }
-    }
-}
+import { useGetLessonBySlugQuery } from "../graphql/generated"
 
 type VideoProps = {
     lessonSlug: string
 }
 
 export function Video(props: VideoProps) {
-    const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_ID, {
+    const { data } = useGetLessonBySlugQuery({
         variables: {
             slug: props.lessonSlug
         }
     })
 
-    if(!data) {
+    if(!data || !data.lesson) {
         return(
             <div className="flex-1">
                 <Loading /> 
@@ -71,7 +43,8 @@ export function Video(props: VideoProps) {
                         <p className="mt-4 text-gray-300 leading-relaxed">
                             {data.lesson.description}
                         </p>
-                        <div className="flex items-center gap-4 mt-6">
+                        {data.lesson.teacher && (
+                            <div className="flex items-center gap-4 mt-6">
                             <img className="w-16 h-16 rounded-[9999px] border-2 border-blue-500"
                             src={data.lesson.teacher.avatarURL} 
                             alt="Imagem de perfil do professor" 
@@ -81,6 +54,7 @@ export function Video(props: VideoProps) {
                                 <p className="font-normal text-sm text-gray-300">{data.lesson.teacher.bio}</p>
                             </div>
                         </div>
+                        )}
                     </div>
 
                     <div className="flex flex-col gap-4">
